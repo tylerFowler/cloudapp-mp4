@@ -13,6 +13,7 @@ run_assignment() {
 	echo "${yellow}	Run${reset}"
 	cd $PREFIX
 	java $1 > $1.output 2> $1.log
+	sed 's/mvcc/seqid/g' $1.output > $1.output.tmp && mv $1.output{.tmp,}
 	cd -
 
 	echo "${yellow}	Collect the Output${reset}"
