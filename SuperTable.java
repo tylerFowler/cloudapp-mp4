@@ -22,17 +22,25 @@ public class SuperTable{
    public static void main(String[] args) throws IOException {
 
       // Instantiate Configuration class
+      Configuration config = HBaseConfiguration.create();
 
       // Instaniate HBaseAdmin class
-      
+      HBaseAdmin admin = new HBaseAdmin(conf);
+
       // Instantiate table descriptor class
+      HTableDescriptor[] tableDescriptor = admin.listTables();
+
+      // Print all table names
+      for (int i = 0; i < tableDescriptor.length; i++) {
+        System.out.println(tableDescriptor[i].getNameAsString());
+      }
 
       // Add column families to table descriptor
 
       // Execute the table through admin
 
       // Instantiating HTable class
-     
+
       // Repeat these steps as many times as necessary
 
 	      // Instantiating Put class
@@ -42,21 +50,20 @@ public class SuperTable{
               // Hints: Accepts column family name, qualifier/row name ,value
 
       // Save the table
-	
+
       // Close table
 
       // Instantiate the Scan class
-     
+
       // Scan the required columns
 
       // Get the scan result
 
       // Read values from scan result
       // Print scan result
- 
+
       // Close the scanner
-   
+
       // Htable closer
    }
 }
-
